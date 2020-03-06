@@ -393,10 +393,10 @@ describe('promise-data-to', () => {
           return httpEmitter
         })
         const { promiseDataTo } = loadLib()
-        promiseDataTo(config, {})
+        return promiseDataTo(config, {})
           .then(res => {
             httpEmitter.emit('socket', socket)
-            expect(httpRequest.abort).to.have.property('calledOnce', true)
+            expect(httpEmitter.abort).to.have.property('calledOnce', true)
           })
       })
     })
